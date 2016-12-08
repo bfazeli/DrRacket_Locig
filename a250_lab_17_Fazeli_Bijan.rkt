@@ -23,3 +23,11 @@
                       (first (rest lis)) (cons
                                           (first (rest (rest lis))) '())))])))
 
+;; third-element
+(define third-element
+  (lambda (lis)
+    (cond
+      [(or (or (empty? lis) (empty? (rest lis)) (empty? (rest (rest lis))))) '()]
+      [else
+       (first (rest (rest lis)))])))
+
