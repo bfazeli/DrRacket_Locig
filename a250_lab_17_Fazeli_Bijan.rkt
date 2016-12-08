@@ -5,5 +5,8 @@
 ;;
 ;; Lab 17
 
-#lang racket/base
+#lang racket
 
+(define double-second
+  (lambda (lis)
+    (cons (first lis) (cons (first (rest lis)) (rest lis)))))
