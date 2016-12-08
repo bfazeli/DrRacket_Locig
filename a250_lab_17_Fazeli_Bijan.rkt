@@ -7,6 +7,19 @@
 
 #lang racket
 
+;; double-second
 (define double-second
   (lambda (lis)
     (cons (first lis) (cons (first (rest lis)) (rest lis)))))
+
+;; func2
+(define func2
+  (lambda (lis)
+    (cond
+      [(or (or (empty? lis) (empty? (rest lis)) (empty? (rest (rest lis))))) '()]
+      [else
+        (cons
+         (first lis) (cons
+                      (first (rest lis)) (cons
+                                          (first (rest (rest lis))) '())))])))
+
