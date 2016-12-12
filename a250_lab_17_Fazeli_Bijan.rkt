@@ -39,3 +39,10 @@
       [(empty? s) '()]
       [(equal? a (first s)) (cons a s)]
       [else (cons (first s) (double a (rest s)))])))
+
+;; cons-to-end
+(define cons-to-end
+  (lambda (a s)
+    (cond
+      [(empty? s) (cons a '())]
+      [else (cons (first s) (cons-to-end a (rest s)))])))
