@@ -9,25 +9,33 @@
 
 ;; double-second
 (define double-second
-  (lambda (lis)
-    (cons (first lis) (cons (first (rest lis)) (rest lis)))))
+  (lambda (b)
+    (cons (first b) (cons (first (rest b)) (rest b)))))
 
 ;; func2
 (define func2
-  (lambda (lis)
+  (lambda (s)
     (cond
-      [(or (or (empty? lis) (empty? (rest lis)) (empty? (rest (rest lis))))) '()]
+      [(or (or (empty? s) (empty? (rest s)) (empty? (rest (rest s))))) '()]
       [else
         (cons
-         (first lis) (cons
-                      (first (rest lis)) (cons
-                                          (first (rest (rest lis))) '())))])))
+         (first s) (cons
+                      (first (rest s)) (cons
+                                          (first (rest (rest s))) '())))])))
 
 ;; third-element
 (define third-element
-  (lambda (lis)
+  (lambda (m)
     (cond
-      [(or (or (empty? lis) (empty? (rest lis)) (empty? (rest (rest lis))))) '()]
+      [(or (or (empty? m) (empty? (rest m)) (empty? (rest (rest m))))) '()]
       [else
-       (first (rest (rest lis)))])))
+       (first (rest (rest m)))])))
 
+
+;; double
+(define double
+  (lambda (a s)
+    (cond
+      [(empty? s) '()]
+      [(equal? a (first s)) (cons a s)]
+      [else (cons (first s) (double a (rest s)))])))
